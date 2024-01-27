@@ -406,21 +406,23 @@ public class FollowChess {
         // pawn, rook, knight, bishop, queen and king
         switch (piece) {
              // White king
-            case 'K': // Black king
+           case 'K': // Black king
                 // conditions for king that it should move only 1 step horizontally
                 // and vertically and can capture only opponent piece
                 char destinationBlackPiece = board[endRow][endCol];
-                if ((rowDiff <= 1 && colDiff <= 1) && Character.isLowerCase(destinationBlackPiece)) {
-
-                    return true;
+                if ( destinationBlackPiece == '.' || ( Character.isUpperCase(piece) && Character.isLowerCase(destinationBlackPiece))) {
+                    if (Math.abs(rowDiff) <= 1 && Math.abs(colDiff) <= 1){
+                        return true;
+                    }
                 }
                 // non valid move for king
                 return false;
             case 'k':
                 char destinationWhitePiece = board[endRow][endCol];
-                if ((rowDiff <= 1 && colDiff <= 1) && Character.isUpperCase(destinationWhitePiece)) {
-
-                    return true;
+                if ( destinationWhitePiece == '.' || (Character.isLowerCase(piece) && Character.isUpperCase(destinationWhitePiece))) {
+                    if (Math.abs(rowDiff) <= 1 && Math.abs(colDiff) <= 1){
+                        return true;
+                    }
                 }
                 // non valid move for king
                 return false;
