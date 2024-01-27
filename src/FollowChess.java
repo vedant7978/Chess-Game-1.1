@@ -217,8 +217,8 @@ public class FollowChess {
 
                     // checking for the conditions for the rows and column we got if they might reach
                     // out of the board boundaries
-                    if (startRow < 0 || startRow >= boardLength || startCol < 0 || startCol >= boardWidth
-                    || endRow < 0 || endRow >= boardLength || endCol < 0 || endCol >= boardWidth ){
+                    if (startRow < 0 || startRow >= boardLength || startCol < 0 || startCol > boardWidth
+                    || endRow < 0 || endRow >= boardLength || endCol < 0 || endCol > boardWidth ){
                         return false;
                     }
                     //determining piece based on start row and end column value
@@ -332,7 +332,7 @@ public class FollowChess {
         // checking if called before loading the board or not
         // piece can only be checked for a is at least move
         // after loading the board
-        if (startRow < 0 || startRow >= boardLength || startCol < 0 || startCol >= boardWidth){
+        if (startRow < 0 || startRow >= boardLength || startCol < 0 || startCol > boardWidth){
             return false;
         }
 
